@@ -159,10 +159,16 @@ a.button span {
 #download-tar-gz span {
   background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
 }
+#view-on-jasny span {
+  background: transparent url(../images/jasny-icon.png) 12px 50% no-repeat;
+}
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
-#view-on-github {
+#view-on-twitter span {
+  background: transparent url(../images/twitter-icon.png) 12px 50% no-repeat;
+}
+#view-on-twitter {
   margin-right: 0;
 }
 
