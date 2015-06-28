@@ -124,7 +124,7 @@ function unslideCanvas(id) {
 }
 
 /**
- * Initialize
+ * Initialize canvas effects
  */
 (function() {
   // Go back to initial state when clicking on the canvas
@@ -148,5 +148,53 @@ function unslideCanvas(id) {
     // Perfect scrollbar
     Ps.initialize(document.getElementById('about'));
   });
+})();
+
+
+/**
+ * Detect swipe
+ */
+(function() {
+    document.addEventListener('touchstart', handleTouchStart, false);        
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;                                                        
+    var yDown = null;                                                        
+
+    function handleTouchStart(evt) {                                         
+        xDown = evt.touches[0].clientX;                                      
+        yDown = evt.touches[0].clientY;                                      
+    };                                                
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) return;
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+        
+        /* reset values */
+        xDown = null;
+        yDown = null;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+            if (Math.abs(xDiff) < 10) return;
+            var direction = xDiff > 0 ? 'left' : 'right';
+        } else {
+            if (Math.abs(yDiff) < 10) return;
+            var direction = yDiff > 0 ? 'up' : 'down';
+        }
+
+        if (window.CustomEvent) {
+          var swipEvent = new CustomEvent('swipe', {detail: {direction: direction}});
+        } else {
+          var event = document.createEvent('CustomEvent');
+          event.initCustomEvent('swipe', true, true, {direction: direction});
+        }
+        
+        evt.target.dispatchEvent(event);        
+    };
 })();
 
