@@ -35,13 +35,35 @@ body {
 
 
 h1 {
-  font-size: 60px;
+  font-size: 10.9vw;
   line-height: 1;
 }
+@media (min-width: 440px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 640px) {
+  h1 {
+    font-size: 7.5vw;
+  }
+}
+@media (min-width: 800px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
 h2 {
-  font-size: 22px;
+  font-size: 5vw;
   font-weight: inherit;
 }
+@media (min-width: 440px) {
+  h2 {
+    font-size: 22px;
+  }
+}
+
 h3 {
   font-size: 20px
   font-weight: 700;
@@ -81,11 +103,23 @@ nav ul {
   line-height: 130%;
 }
 
+a, a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+section + section {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
 #canvas {
   height: 100%;
   color: #fff;
   background: #000;
-  background-image: url(bg-jasnynet.png);
   background-repeat: no-repeat;
   background-size: 50vw 50vw;
   background-position: 100%;
@@ -113,25 +147,44 @@ nav ul {
   transition: -webkit-transform 1s, -ms-transform 1s, transform 1s;
   background: transparent;
   background-repeat: no-repeat;
-  background-size: 50vw 50vw;
-  background-position: 100%;
 }
 
-#siteTop {
-  background-position-y: calc(50vh - 25vw);
-}
 #siteBottom {
-  background-position-y: -25vw;
+  background-image: url(bg-jasnynet.png);
+  background-position: calc(100% - 15px) calc(100% + 40px);
+  background-size: 270px;
 }
 
 #siteTop .content,
 #siteBottom .content {
   position: absolute;
-  width: 380px;
+  width: 100%;
   height: auto;
-  padding-left: 50px;
+  right: 0;
+  padding-left: 30px;
+  padding-right: 30px;
 }
-
+@media (min-width: 384px) {
+  #siteTop .content,
+  #siteBottom .content {
+    padding-left: 7.8vw;
+  }
+}
+@media (min-width: 640px) {
+  #siteTop .content,
+  #siteBottom .content {
+    width: 47.5vw;
+    right: auto;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+}
+@media (min-width: 800px) {
+  #siteTop .content,
+  #siteBottom .content {
+    width: 380px;
+  }
+}
 #siteTop .content {
   bottom: 0;
 }
@@ -139,26 +192,13 @@ nav ul {
   top: 0;
 }
 
-a, a:hover {
-  color: inherit;
-  text-decoration: underline;
-}
-
-section + section {
-  margin-top: 30px;
-}
-
-.hidden {
-  display: none;
-}
-
 #canvas.split {
   background: none;
 }
+  
 #canvas.split #siteTop,
 #canvas.split #siteBottom {
   background-color: #000;
-  background-image: url(bg-jasnynet.png);
 }
 #canvas.open #siteTop {
   -webkit-transform: translateY(-42vh);
@@ -171,6 +211,26 @@ section + section {
   -ms-transform: translateY(42vh);
   transform: translateY(42vh);
   cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  #siteTop,
+  #siteBottom {
+    background-size: 50vw 50vw;
+  }
+  #siteTop {
+    background-position: 100% calc(50vh - 25vw);
+  }
+  #siteBottom {
+    background-image: none;
+    background-position: 100% -25vw;
+  }
+  
+  #canvas,
+  #canvas.split #siteTop,
+  #canvas.split #siteBottom {
+    background-image: url(bg-jasnynet.png);
+  }
 }
 
 #siteTop.shadow {
@@ -215,6 +275,14 @@ section + section {
   box-shadow: 2px 0px 8px 3px rgba(0,0,0,0.4);
 }
 
+#about .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-transform: none;
+  display: none;
+}
+
 #about.in {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -249,6 +317,13 @@ section + section {
   margin: 0;
 }
 
+#whatwedo {
+  text-align: justify;
+}
+#whatwedo h2 {
+  text-align: left;
+}
+
 #toolset ul {
   list-style: none;
   padding-left: 10px;
@@ -258,6 +333,10 @@ section + section {
   font-size: 25px;
   vertical-align: middle;
   margin-right: 10px;
+}
+
+#certificates > a {
+  display: inline-block;
 }
 
 #certificates > a:not(:last-child) {
@@ -280,33 +359,6 @@ section + section {
   -ms-transform: translateX(90%);
   transform: translateX(90%);
   cursor: pointer;
-}
-
-@media (max-width: 800px) {
-  h1 {
-    font-size: 50px;
-  }
-  #siteTop .content,
-  #siteBottom .content {
-    width: 310px;
-  }
-}
-
-@media (max-width: 640px) {
-  #canvas,
-  #canvas.split #siteTop {
-    background-image: none;
-  }
-  #siteBottom,
-  #canvas.split #siteBottom {
-    background-image: url(bg-jasnynet.png);
-    background-position: calc(100% - 15px) calc(100% + 40px);
-    background-size: 270px;
-  }
-  #siteTop .content,
-  #siteBottom .content {
-    right: 30px;
-  }
 }
 
 @media (max-width: 629px) {
