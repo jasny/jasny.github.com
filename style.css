@@ -85,9 +85,6 @@ hgroup > * {
 hgroup > * + * {
   color: #666666;
 }
-hgroup > h1 + h2 {
-  margin-left: 5px;
-}
 
 img {
   vertical-align: top;
