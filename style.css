@@ -26,35 +26,13 @@ body {
 
 
 h1 {
-    font-size: 10.9vw;
+    font-size: 48px;
     line-height: 1;
 }
-@media (min-width: 440px) {
-    h1 {
-        font-size: 48px;
-    }
-}
-@media (min-width: 640px) {
-    h1 {
-        font-size: 7.8vw;
-    }
-}
-@media (min-width: 800px) {
-    h1 {
-        font-size: 64px;
-    }
-}
-
 h2 {
-    font-size: 5vw;
+    font-size: 22px;
     font-weight: inherit;
 }
-@media (min-width: 440px) {
-    h2 {
-        font-size: 22px;
-    }
-}
-
 h3 {
     font-size: 20px;
     font-weight: 700;
@@ -69,15 +47,11 @@ h4 {
 hgroup {
     margin-bottom: 20px;
 }
-
 hgroup > * {
     margin: 0;
 }
 hgroup > * + * {
     color: #888;
-}
-hgroup > h4 {
-    margin-top: 5px;
 }
 
 img {
@@ -122,6 +96,43 @@ section + section {
     overflow: hidden;
     transition: -webkit-transform 0.5s, -ms-transform 0.5s, transform 0.5s;
 }
+
+#canvas h1 {
+    font-size: 10.9vw;
+    line-height: 1;
+}
+#canvas h2 {
+    font-size: 5vw;
+    font-weight: inherit;
+}
+#canvas h3 {
+    font-size: 3.64vw;
+    font-weight: 700;
+    margin-top: 0.2em;
+    text-align: right;
+}
+@media (min-width: 440px) {
+    #canvas h1 {
+        font-size: 48px;
+    }
+    #canvas h2 {
+        font-size: 22px;
+    }
+    #canvas h3 {
+        font-size: 16px;
+    }
+}
+@media (min-width: 640px) {
+    #canvas h1 {
+        font-size: 7.8vw;
+    }
+}
+@media (min-width: 800px) {
+    #canvas h1 {
+        font-size: 64px;
+    }
+}
+
 
 #canvas li.contact {
     padding-top: 10px;
@@ -451,16 +462,15 @@ section + section {
 
 #case-studies {
     position: absolute;
-    top: 75px;
+    top: calc(8vh + 7px);
     z-index: 0;
-    height: calc(100% - 150px);
+    height: calc(84vh - 14px);
     overflow-y: auto;
     width: 100vw;
 }
 
 #case-studies.in {
     position: absolute;
-    top: 75px;
     z-index: 300;
 }
 
