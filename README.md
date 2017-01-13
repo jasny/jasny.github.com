@@ -1,6 +1,6 @@
 # About the jasny.net website
 
-Feel free to use any part of this website, as it's released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) "No rights reserved".
+Feel free to use any part of this website (except the Jasny logo). The website it's released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) "No rights reserved".
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
 
