@@ -12,7 +12,7 @@ function showHideContent(url) {
 
   // Hide content
   if (document.getElementById('about').classList.contains('in')) hideAbout();
-  else if (document.getElementById('canvas').classList.contains('open')) closeCanvas('case-studies');
+  else if (document.getElementById('canvas').classList.contains('open')) closeCanvas('portfolio');
   else if (document.getElementById('canvas').classList.contains('slid')) unslideCanvas('projects');
   else wait = false;
   
@@ -23,7 +23,7 @@ function showHideContent(url) {
   
   // Show content
   if (url.match(/#about$/)) showAbout();
-  if (url.match(/#case-studies$/)) openCanvas('case-studies');
+  if (url.match(/#portfolio$/)) openCanvas('portfolio');
   if (url.match(/#projects$/)) slideCanvas('projects');
 }
 
@@ -154,7 +154,7 @@ function unslideCanvas(id) {
     
     // Perfect scrollbar
     Ps.initialize(document.getElementById('about'));
-    Ps.initialize(document.getElementById('case-studies'));
+    Ps.initialize(document.getElementById('portfolio'));
   });
 })();
 

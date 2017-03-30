@@ -465,7 +465,7 @@ section + section {
     }
 }
 
-#case-studies {
+#portfolio {
     position: absolute;
     top: calc(8vh + 7px);
     z-index: 0;
@@ -474,23 +474,23 @@ section + section {
     width: 100vw;
 }
 
-#case-studies.in {
+#portfolio.in {
     position: absolute;
     z-index: 300;
 }
 
-#case-studies > section {
+#portfolio > section {
     margin: 20px;
     max-width: 900px;
 }
 
-#case-studies > .case {
+#portfolio > .case {
     padding: 20px;
     border: 1px solid #ccc;
 }
 
 /* clearfix */
-#case-studies > .case:after {
+#portfolio > .case:after {
     content: ".";
     display: block;
     height: 0;
@@ -498,26 +498,26 @@ section + section {
     visibility: hidden;
 }
 
-#case-studies > .case h2 {
+#portfolio > .case h2 {
     margin-top: 0;
 }
 
-#case-studies > .case .screenshot {
+#portfolio > .case .screenshot {
     float: right;
     margin-left: 20px;
 }
 
-#case-studies ul.tags {
+#portfolio ul.tags {
     list-style: none;
     font-size: 0.75em;
     padding: 0;
 }
 
-#case-studies ul.tags:last-child {
+#portfolio ul.tags:last-child {
     margin-bottom: 0;
 }
 
-#case-studies ul.tags li {
+#portfolio ul.tags li {
     display: inline;
     background: #bbb;
     color: #fff;
@@ -528,7 +528,7 @@ section + section {
 }
 
 /* clearfix */
-#case-studies .clients p:after {
+#portfolio .clients p:after {
     content: ".";
     display: block;
     height: 0;
@@ -536,13 +536,13 @@ section + section {
     visibility: hidden;
 }
 
-#case-studies .clients .logo {
+#portfolio .clients .logo {
     float: left;
     margin-right: 15px;
 }
 
 @media (min-width: 940px) {
-    #case-studies > section {
+    #portfolio > section {
         margin: 20px auto;
     }
 }
