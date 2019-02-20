@@ -12,8 +12,7 @@ function showHideContent(url) {
 
   // Hide content
   if (document.getElementById('about').classList.contains('in')) hideAbout();
-  else if (document.getElementById('canvas').classList.contains('open')) closeCanvas('portfolio');
-  else if (document.getElementById('canvas').classList.contains('slid')) unslideCanvas('projects');
+  else if (document.getElementById('canvas').classList.contains('open')) closeCanvas('projects');
   else wait = false;
   
   if (wait) {
@@ -23,8 +22,7 @@ function showHideContent(url) {
   
   // Show content
   if (url.match(/#about$/)) showAbout();
-  if (url.match(/#portfolio$/)) openCanvas('portfolio');
-  if (url.match(/#projects$/)) slideCanvas('projects');
+  if (url.match(/#projects$/)) openCanvas('projects');
 }
 
 /**
@@ -154,7 +152,7 @@ function unslideCanvas(id) {
     
     // Perfect scrollbar
     Ps.initialize(document.getElementById('about'));
-    Ps.initialize(document.getElementById('portfolio'));
+    Ps.initialize(document.getElementById('projects'));
   });
 })();
 

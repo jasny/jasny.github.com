@@ -146,6 +146,14 @@ section + section {
     color: #fff;
 }
 
+#canvas li.contact img {
+  vertical-align: bottom;
+  opacity: 0.8;
+}
+#canvas li.contact a:hover img {
+  opacity: 1;
+}
+
 #siteTop,
 #siteBottom {
     position: relative;
@@ -465,7 +473,7 @@ section + section {
     }
 }
 
-#portfolio {
+#projects {
     position: absolute;
     top: calc(8vh + 7px);
     z-index: 0;
@@ -474,23 +482,23 @@ section + section {
     width: 100vw;
 }
 
-#portfolio.in {
+#projects.in {
     position: absolute;
     z-index: 300;
 }
 
-#portfolio > section {
+#projects > section {
     margin: 20px;
     max-width: 900px;
 }
 
-#portfolio > .case {
+#projects > .case {
     padding: 20px;
     border: 1px solid #ccc;
 }
 
 /* clearfix */
-#portfolio > .case:after {
+#projects > .case:after {
     content: ".";
     display: block;
     height: 0;
@@ -498,26 +506,26 @@ section + section {
     visibility: hidden;
 }
 
-#portfolio > .case h2 {
+#projects > .case h2 {
     margin-top: 0;
 }
 
-#portfolio > .case .screenshot {
+#projects > .case .screenshot {
     float: right;
     margin-left: 20px;
 }
 
-#portfolio ul.tags {
+#projects ul.tags {
     list-style: none;
     font-size: 0.75em;
     padding: 0;
 }
 
-#portfolio ul.tags:last-child {
+#projects ul.tags:last-child {
     margin-bottom: 0;
 }
 
-#portfolio ul.tags li {
+#projects ul.tags li {
     display: inline;
     background: #bbb;
     color: #fff;
@@ -528,7 +536,7 @@ section + section {
 }
 
 /* clearfix */
-#portfolio .clients p:after {
+#projects .clients p:after {
     content: ".";
     display: block;
     height: 0;
@@ -536,13 +544,13 @@ section + section {
     visibility: hidden;
 }
 
-#portfolio .clients .logo {
+#projects .clients .logo {
     float: left;
     margin-right: 15px;
 }
 
 @media (min-width: 940px) {
-    #portfolio > section {
+    #projects > section {
         margin: 20px auto;
     }
 }
