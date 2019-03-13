@@ -149,10 +149,6 @@ function unslideCanvas(id) {
     if (window.location.href.match(/#.+$/)) setTimeout(function() {
        showHideContent(window.location.href);
     }, 500);
-    
-    // Perfect scrollbar
-    Ps.initialize(document.getElementById('about'));
-    Ps.initialize(document.getElementById('projects'));
   });
 })();
 

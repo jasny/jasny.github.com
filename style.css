@@ -282,6 +282,7 @@ section + section {
     overflow-y: auto;
     font-weight: 300;
     padding: 30px;
+    overflow-y: auto;
     transition: -webkit-transform 1s, -ms-transform 1s, transform 1s;
     -webkit-transform: translate3d(110%, 0, 0);
     -ms-transform: translate3d(110%, 0, 0);

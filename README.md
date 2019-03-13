@@ -39,6 +39,4 @@ The website uses [vanilla JavaScript](http://vanilla-js.com/) rather that a JS f
 
 The website is only properly displayed with a browser that support the `transform` property.
 
-Older browsers (like IE9) are displayed a message and link to [outdatedbrowser.com](http://outdatedbrowser.com/). This is done with the outdatedbrowser.js library. AJAX for this library has been disabled.
-
 
