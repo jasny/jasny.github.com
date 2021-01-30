@@ -1,5 +1,5 @@
 /*
- * Feel free to use this code :D (http://www.jasny.net/mit)
+ * Feel free to use this code :D. Released under CC0.
  * Also http://youmightnotneedjquery.com
  */
 
