@@ -36,6 +36,9 @@
 .tag-php:before {
   content: "\"";
 }
+.tag-javascript:before {
+  content: "3";
+}
 .tag-node-js:before {
   content: "&";
 }
