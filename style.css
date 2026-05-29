@@ -152,13 +152,9 @@ section + section {
     opacity: 1;
 }
 
-#address a img {
+#address img {
     vertical-align: middle;
-    opacity: 0.6;
     margin-right: 4px;
-}
-#address a:hover img {
-    opacity: 1;
 }
 
 #siteTop,
