@@ -4,54 +4,6 @@
  * Feel free to use this code :D. Released under CC0.
  */
 
-/* hh-tag icons */
-@font-face {
-  font-family: "hh-tag";
-  src:url("fonts/hh-tag.eot");
-  src:url("fonts/hh-tag.eot?#iefix") format("embedded-opentype"),
-    url("fonts/hh-tag.woff") format("woff"),
-    url("fonts/hh-tag.ttf") format("truetype"),
-    url("fonts/hh-tag.svg#hh-tag") format("svg");
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-[class^="tag-"]:before,
-[class*=" tag-"]:before {
-  font-family: "hh-tag" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.tag-linux:before {
-  content: "-";
-}
-.tag-php:before {
-  content: "\"";
-}
-.tag-javascript:before {
-  content: "3";
-}
-.tag-node-js:before {
-  content: "&";
-}
-.tag-aws:before {
-  content: "d";
-}
-.tag-mongodb:before {
-  content: "+";
-}
-.tag-angular-js-1:before {
-  content: "j";
-}
-
 /* latin */
 @font-face {
     font-family: 'Lato';
@@ -191,20 +143,22 @@ section + section {
     padding-top: 10px;
 }
 
-#canvas .fa {
-    color: #aaa;
-    margin-left: 5px;
-}
-#canvas a:hover .fa {
-    color: #fff;
-}
-
 #canvas li.contact img {
-  vertical-align: bottom;
-  opacity: 0.8;
+    vertical-align: bottom;
+    opacity: 0.6;
+    filter: invert(1);
 }
 #canvas li.contact a:hover img {
-  opacity: 1;
+    opacity: 1;
+}
+
+#address a img {
+    vertical-align: middle;
+    opacity: 0.6;
+    margin-right: 4px;
+}
+#address a:hover img {
+    opacity: 1;
 }
 
 #siteTop,
