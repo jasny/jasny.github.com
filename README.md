@@ -20,19 +20,21 @@ No CSS preprocessors are used, it's just plain old CSS.
 
 Example: An element should have a `10px` padding for a viewport width of `400px` or less. For a width of `900px` or more, the padding should be `20px`. Between `400px` and `900px` we smoothly transition from `10px` to `20px`.
 
-    padding: 10px;
-    
-    @media (min-width: 400px) {
-      padding: calc(2vw + 2px);
-    }
-    
-    @media (min-width: 900px) {
-      padding: 20px;
-    }
+```css
+padding: 10px;
+
+@media (min-width: 400px) {
+  padding: calc(2vw + 2px);
+}
+
+@media (min-width: 900px) {
+  padding: 20px;
+}
+```
 
 ## JavaScript
 
-The website uses [vanilla JavaScript](http://vanilla-js.com/) rather that a JS framework. If you're used to working with jQuery and are interrested in writing native JavaScript, check out the website ['You might not need jQuery'](http://youmightnotneedjquery.com).
+The website uses [vanilla JavaScript](http://vanilla-js.com/) rather that a JS framework.
 
 
 ## Browser support

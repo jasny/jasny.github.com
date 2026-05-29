@@ -43,11 +43,6 @@ h3 {
     font-weight: 700;
     margin-bottom: 10px;
 }
-h4 {
-    font-size: inherit;
-    font-weight: 700;
-    margin-bottom: 2px;
-}
 
 hgroup {
     margin-bottom: 20px;
@@ -99,7 +94,7 @@ section + section {
     background-size: 50vw 50vw;
     background-position: 100%;
     overflow: hidden;
-    transition: -webkit-transform 0.5s, -ms-transform 0.5s, transform 0.5s;
+    transition: transform 0.5s;
 }
 
 #canvas h1 {
@@ -108,11 +103,9 @@ section + section {
 }
 #canvas h2 {
     font-size: 5vw;
-    font-weight: inherit;
 }
 #canvas h3 {
     font-size: 3.64vw;
-    font-weight: 700;
     margin-top: 0.2em;
     text-align: right;
 }
@@ -163,7 +156,6 @@ section + section {
     top: 0;
     height: 50%;
     transition: transform 1s;
-    background: transparent;
     background-repeat: no-repeat;
 }
 
@@ -219,14 +211,10 @@ section + section {
     background-color: #000;
 }
 #canvas.open #siteTop {
-    -webkit-transform: translateY(-42vh);
-    -ms-transform: translateY(-42vh);
     transform: translateY(-42vh);
     cursor: pointer;
 }
 #canvas.open #siteBottom {
-    -webkit-transform: translateY(42vh);
-    -ms-transform: translateY(42vh);
     transform: translateY(42vh);
     cursor: pointer;
 }
@@ -279,7 +267,6 @@ section + section {
     overflow-y: auto;
     font-weight: 300;
     padding: 30px;
-    overflow-y: auto;
     transition: transform 1s;
     transform: translate3d(110%, 0, 0);
     box-shadow: 2px 0px 8px 3px rgba(0,0,0,0.4);
@@ -335,56 +322,11 @@ section + section {
     margin-left: 3px;
 }
 
-#contact-us {
-    text-align: center;
-}
-#contact-us a {
-    width: 140px;
-    display: inline-block;
-}
-#contact-us a > div {
-    width: 140px;
-    display: inline-block;
-    margin: 0 auto;
-    border: 1px solid;
-    padding: 10px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 70px;
-    text-decoration: none;
-    border: 3px solid #333;
-}
-#contact-us a .icon {
-    display: none;
-}
-#contact-us a:hover > div {
-    width: 52px;
-    transition: width 0.2s;
-}
-#contact-us a:hover .icon {
-    display: initial;
-}    
-#contact-us a:hover .label {
-    display: none;
-}    
-
-
 #whatwedo {
     text-align: justify;
 }
 #whatwedo h2 {
     text-align: left;
-}
-
-#toolset ul {
-    list-style: none;
-    padding-left: 10px;
-}
-
-#toolset i {
-    font-size: 25px;
-    vertical-align: middle;
-    margin-right: 10px;
 }
 
 #certificates > a {
@@ -411,15 +353,11 @@ section + section {
 }
 
 #canvas.moved {
-    -webkit-box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.4);
     box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.4);
-    transition: -webkit-transform 0.8s, -ms-transform 0.8s, transform 0.8s;
+    transition: transform 0.8s;
 }
 
 #canvas.slid {
-    -webkit-transform: translateX(90%);
-    -ms-transform: translateX(90%);
     transform: translateX(90%);
     cursor: pointer;
 }
@@ -475,7 +413,6 @@ section + section {
 }
 
 #projects.in {
-    position: absolute;
     z-index: 300;
 }
 
@@ -490,12 +427,11 @@ section + section {
 }
 
 /* clearfix */
-#projects > .case:after {
-    content: ".";
+#projects > .case:after,
+#projects .clients p:after {
+    content: "";
     display: block;
-    height: 0;
     clear: both;
-    visibility: hidden;
 }
 
 #projects > .case h2 {
@@ -525,15 +461,6 @@ section + section {
     padding: 3px 6px;
     border-radius: 3px;
     font-weight: bold;
-}
-
-/* clearfix */
-#projects .clients p:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
 }
 
 #projects .clients .logo {
