@@ -3,95 +3,76 @@
  * Also http://youmightnotneedjquery.com
  */
 
+const canvas  = document.getElementById('canvas');
+const about   = document.getElementById('about');
+const siteTop = document.getElementById('siteTop');
+const siteBtm = document.getElementById('siteBottom');
 
 /**
  * Show or hide content based on hash change
  */
 function showHideContent(url) {
-  var wait = true;
+  let delay = 0;
 
-  // Hide content
-  if (document.getElementById('about').classList.contains('in')) hideAbout();
-  else if (document.getElementById('canvas').classList.contains('open')) closeCanvas('projects');
-  else wait = false;
-  
-  if (wait) {
-    if (!url.match(/#$/)) setTimeout(function() { showHideContent(url); }, 1000);
-    return;
-  }
-  
-  // Show content
-  if (url.match(/#about$/)) showAbout();
-  if (url.match(/#projects$/)) openCanvas('projects');
+  if (about.classList.contains('in')) { hideAbout(); delay = 1000; }
+  else if (canvas.classList.contains('open')) { closeCanvas('projects'); delay = 1000; }
+
+  if (url.match(/#$/)) return;
+
+  setTimeout(function() {
+    if (url.match(/#about$/)) showAbout();
+    if (url.match(/#projects$/)) openCanvas('projects');
+  }, delay);
 }
 
 /**
  * Show about panel
  */
 function showAbout() {
-  document.getElementById('about').classList.remove('hidden');
-  document.getElementById('canvas').classList.add('shrunk');
-  
-  setTimeout(function() {
-    document.getElementById('about').classList.add('in');
-  }, 50);
+  about.classList.remove('hidden');
+  canvas.classList.add('shrunk');
+  setTimeout(() => about.classList.add('in'), 50);
 }
 
 /**
  * Hide about panel
  */
 function hideAbout() {
-  document.getElementById('canvas').classList.remove('shrunk');
-  document.getElementById('about').classList.remove('in');
-  
+  canvas.classList.remove('shrunk');
+  about.classList.remove('in');
   setTimeout(function() {
-    if (document.getElementById('about').classList.contains('in')) return;
-    document.getElementById('about').classList.add('hidden');
+    if (!about.classList.contains('in')) about.classList.add('hidden');
   }, 1000);
 }
 
 /**
  * Open the canvas effect
- *
- * @param string id  Element id to show
  */
 function openCanvas(id) {
-  var canvas = document.getElementById('canvas');
-  var element = document.getElementById(id);
-
   if (canvas.classList.contains('open')) return;
 
+  const element = document.getElementById(id);
   element.classList.remove('hidden');
+  canvas.classList.add('open', 'split');
 
-  canvas.classList.add('open');
-  canvas.classList.add('split');
-
-  setTimeout(function() {
-    document.getElementById('siteTop').classList.add('shadow');
-    document.getElementById('siteBottom').classList.add('shadow');
-  }, 40);
-
-  setTimeout(function() {
-    element.classList.add('in');
-  }, 1000);
+  setTimeout(() => { siteTop.classList.add('shadow'); siteBtm.classList.add('shadow'); }, 40);
+  setTimeout(() => element.classList.add('in'), 1000);
 }
 
 /**
  * Close the canvas effect
  */
 function closeCanvas(id) {
-  var canvas = document.getElementById('canvas');
-  var element = document.getElementById(id);
-
   if (!canvas.classList.contains('open')) return;
 
+  const element = document.getElementById(id);
   canvas.classList.remove('open');
   element.classList.remove('in');
 
   setTimeout(function() {
     if (canvas.classList.contains('open')) return;
-    document.getElementById('siteTop').classList.remove('shadow');
-    document.getElementById('siteBottom').classList.remove('shadow');
+    siteTop.classList.remove('shadow');
+    siteBtm.classList.remove('shadow');
   }, 960);
 
   setTimeout(function() {
@@ -102,53 +83,22 @@ function closeCanvas(id) {
 }
 
 /**
- * Slide the canvas effect
- */
-function slideCanvas(id) {
-  var canvas = document.getElementById('canvas');
-
-  if (canvas.classList.contains('slid')) return;
-  
-  document.getElementById(id).classList.remove('hidden');
-
-  canvas.classList.add('moved'); 
-  canvas.classList.add('slid');
-}
-
-/**
- * Slide the canvas back effect
- */
-function unslideCanvas(id) {
-  document.getElementById('canvas').classList.remove('slid');
-  
-  setTimeout(function() {
-    if (canvas.classList.contains('slid')) return;
-    document.getElementById('canvas').classList.remove('moved');
-    document.getElementById(id).classList.add('hidden');
-  }, 1000);
-}
-
-/**
  * Initialize
  */
 (function() {
   // Go back to initial state when clicking on the canvas
-  Array.prototype.forEach.call(document.querySelectorAll('#canvas > *'), function(el) {
+  document.querySelectorAll('#canvas > *').forEach(function(el) {
     el.addEventListener('click', function(event) {
       if (window.location.href.match(/#.+$/) && event.target.tagName !== 'A') window.location = '#';
     });
   });
-  
+
   // Add handler when URL # changes
-  window.addEventListener('hashchange', function(event) {
-    showHideContent(event.newURL);
-  }, false);
-  
+  window.addEventListener('hashchange', (event) => showHideContent(event.newURL));
+
+  // Show content based on current # on load
   window.addEventListener('load', function() {
-    // Show content based on current #
-    if (window.location.href.match(/#.+$/)) setTimeout(function() {
-       showHideContent(window.location.href);
-    }, 500);
+    if (window.location.href.match(/#.+$/)) setTimeout(() => showHideContent(window.location.href), 500);
   });
 })();
 
