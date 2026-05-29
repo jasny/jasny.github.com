@@ -69,7 +69,6 @@ html {
     font-family: 'Lato', sans-serif;
     font-weight: 100;
     font-size: 16px;
-    line-spacing: 140%;
 }
 body {
     height: 100%;
@@ -178,12 +177,12 @@ section + section {
 }
 @media (min-width: 640px) {
     #canvas h1 {
-        font-size: 7.8vw;
+        font-size: 6.2vw;
     }
 }
 @media (min-width: 800px) {
     #canvas h1 {
-        font-size: 64px;
+        font-size: 52px;
     }
 }
 
@@ -509,7 +508,7 @@ section + section {
 
 @media (max-height: 540px) {
     #canvas h1 {
-        font-size: 9.259vh;
+        font-size: 6.5vh;
     }
     #canvas h2 {
         font-size: 4.074vh;
