@@ -57,13 +57,13 @@ h3 {
     margin-bottom: 10px;
 }
 
-hgroup {
+#siteTop header {
     margin-bottom: 20px;
 }
-hgroup > * {
+#siteTop header > * {
     margin: 0;
 }
-hgroup > * + * {
+#siteTop header > * + * {
     color: var(--color-muted);
 }
 
@@ -121,10 +121,10 @@ section + section {
     font-size: 10.9vw;
     line-height: 1;
 }
-#canvas h2 {
+#canvas .tagline {
     font-size: 5vw;
 }
-#canvas h3 {
+#canvas .location {
     font-size: 3.64vw;
     margin-top: 0.2em;
     text-align: right;
@@ -133,10 +133,10 @@ section + section {
     #canvas h1 {
         font-size: 48px;
     }
-    #canvas h2 {
+    #canvas .tagline {
         font-size: 22px;
     }
-    #canvas h3 {
+    #canvas .location {
         font-size: 16px;
     }
 }
@@ -295,8 +295,16 @@ section + section {
         position: absolute;
         top: 5px;
         right: 5px;
-        text-transform: none;
-        display: none;
+        width: 0.8em;
+        padding: 0;
+        color: inherit;
+        background: none;
+        border: 0;
+        font: inherit;
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+        cursor: pointer;
     }
 
     &.in {
@@ -371,6 +379,12 @@ section + section {
     }
 }
 
+@media (min-width: 640px) {
+    #about .close {
+        display: none;
+    }
+}
+
 @media (min-width: 1200px) and (max-width: 1599px) {
     #about {
         width: 50%;
@@ -394,7 +408,7 @@ section + section {
     #canvas h1 {
         font-size: 6.5vh;
     }
-    #canvas h2 {
+    #canvas .tagline {
         font-size: 4.074vh;
     }
 }
