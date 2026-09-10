@@ -7,22 +7,28 @@ const canvas  = document.getElementById('canvas');
 const about   = document.getElementById('about');
 const siteTop = document.getElementById('siteTop');
 const siteBtm = document.getElementById('siteBottom');
+const projects = document.getElementById('projects');
 
 /**
- * Show or hide content based on hash change
+ * Run a callback after an element has finished sliding.
+ */
+function afterTransition(element, callback) {
+  element.addEventListener('transitionend', function(event) {
+    if (event.target === element && event.propertyName === 'transform') {
+      callback();
+    }
+  }, {once: true});
+}
+
+/**
+ * Show or hide content based on hash change.
  */
 function showHideContent(url) {
-  let delay = 0;
+  const show = {about: showAbout, projects: showProjects}[url.split('#').pop()];
 
-  if (about.classList.contains('in')) { hideAbout(); delay = 1000; }
-  else if (canvas.classList.contains('open')) { closeCanvas('projects'); delay = 1000; }
-
-  if (url.match(/#$/)) return;
-
-  setTimeout(function() {
-    if (url.match(/#about$/)) showAbout();
-    if (url.match(/#projects$/)) openCanvas('projects');
-  }, delay);
+  if (about.classList.contains('in')) return hideAbout(show);
+  if (canvas.classList.contains('open')) return hideProjects(show);
+  if (show) show();
 }
 
 /**
@@ -31,55 +37,51 @@ function showHideContent(url) {
 function showAbout() {
   about.classList.remove('hidden');
   canvas.classList.add('shrunk');
-  setTimeout(() => about.classList.add('in'), 50);
+  void about.offsetWidth;
+  about.classList.add('in');
 }
 
 /**
- * Hide about panel
+ * Hide the about panel, then optionally show another panel.
  */
-function hideAbout() {
+function hideAbout(next = () => {}) {
+  afterTransition(about, function() {
+    about.classList.add('hidden');
+    next();
+  });
+
   canvas.classList.remove('shrunk');
   about.classList.remove('in');
-  setTimeout(function() {
-    if (!about.classList.contains('in')) about.classList.add('hidden');
-  }, 1000);
 }
 
 /**
- * Open the canvas effect
+ * Show the projects panel.
  */
-function openCanvas(id) {
-  if (canvas.classList.contains('open')) return;
-
-  const element = document.getElementById(id);
-  element.classList.remove('hidden');
+function showProjects() {
+  afterTransition(siteTop, () => projects.classList.add('in'));
+  projects.classList.remove('hidden');
   canvas.classList.add('open', 'split');
 
-  setTimeout(() => { siteTop.classList.add('shadow'); siteBtm.classList.add('shadow'); }, 40);
-  setTimeout(() => element.classList.add('in'), 1000);
+  window.requestAnimationFrame(() => {
+    siteTop.classList.add('shadow');
+    siteBtm.classList.add('shadow');
+  });
 }
 
 /**
- * Close the canvas effect
+ * Hide the projects panel, then optionally show another panel.
  */
-function closeCanvas(id) {
-  if (!canvas.classList.contains('open')) return;
-
-  const element = document.getElementById(id);
-  canvas.classList.remove('open');
-  element.classList.remove('in');
-
-  setTimeout(function() {
-    if (canvas.classList.contains('open')) return;
+function hideProjects(next = () => {}) {
+  afterTransition(siteTop, function() {
     siteTop.classList.remove('shadow');
     siteBtm.classList.remove('shadow');
-  }, 960);
-
-  setTimeout(function() {
-    if (canvas.classList.contains('open')) return;
     canvas.classList.remove('split');
-    element.classList.add('hidden');
-  }, 1000);
+    projects.classList.add('hidden');
+    next();
+  });
+
+  canvas.classList.remove('open');
+  projects.classList.remove('in');
 }
 
 /**
@@ -89,7 +91,7 @@ function closeCanvas(id) {
   // Go back to initial state when clicking on the canvas
   document.querySelectorAll('#canvas > *').forEach(function(el) {
     el.addEventListener('click', function(event) {
-      if (window.location.href.match(/#.+$/) && event.target.tagName !== 'A') window.location = '#';
+      if (window.location.href.match(/#.+$/) && !event.target.closest('a')) window.location = '#';
     });
   });
 
@@ -98,7 +100,6 @@ function closeCanvas(id) {
 
   // Show content based on current # on load
   window.addEventListener('load', function() {
-    if (window.location.href.match(/#.+$/)) setTimeout(() => showHideContent(window.location.href), 500);
+    showHideContent(window.location.href);
   });
 })();
-
