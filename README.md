@@ -1,44 +1,32 @@
-# About the jasny.net website
+# jasny.net website
 
-Feel free to use any part of this website (except the Jasny logo). The website it's released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) "No rights reserved".
+The source for [jasny.net](https://jasny.net), a small static personal portfolio hosted on GitHub Pages.
 
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+## Development
 
-jasny.net is a static website, hosted on [GitHub pages](https://pages.github.com/). It has no installation or build process.
-
-## HTML
-
-The website is written for HTML5 and crafted by hand with the use of a simple text editor.
+No installation, dependencies, or build step are required. Open `index.html` directly in a browser.
 
 ## CSS
 
-No CSS preprocessors are used, it's just plain old CSS.
+No CSS preprocessors are used. The stylesheet uses plain CSS, including custom properties and nesting.
 
 ### Responsive design
 
-[Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) and [viewport percentage lengths](https://developer.mozilla.org/en-US/docs/Web/CSS/length#Viewport-percentage_lengths) are used to create a responsive design. The layout transitions seamlessly from one to the other viewports by combining relative units `%`, `vh` and `vw` with the absolute unit `px`. This contrasts most designs, which have specific breakpoints where the layout changes.
+[Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) and viewport units are used to create a responsive layout. Relative units such as `%`, `vh`, and `vw` are combined with `px` values where fixed dimensions are useful.
 
-Example: An element should have a `10px` padding for a viewport width of `400px` or less. For a width of `900px` or more, the padding should be `20px`. Between `400px` and `900px` we smoothly transition from `10px` to `20px`.
+For example, project sections keep a readable maximum width while retaining margins on narrow viewports:
 
 ```css
-padding: 10px;
-
-@media (min-width: 400px) {
-  padding: calc(2vw + 2px);
-}
-
-@media (min-width: 900px) {
-  padding: 20px;
+#projects > section {
+  width: min(900px, calc(100% - 40px));
+  margin: 20px auto;
 }
 ```
 
 ## JavaScript
 
-The website uses [vanilla JavaScript](http://vanilla-js.com/) rather that a JS framework.
+The website uses 63 lines of plain JavaScript rather than a heavy JavaScript framework.
 
+## License
 
-## Browser support
-
-The website is only properly displayed with a browser that support the `transform` property.
-
-
+The website source is released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode). The Jasny logo is excluded.

@@ -1,6 +1,5 @@
 /*
  * Feel free to use this code :D. Released under CC0.
- * Also http://youmightnotneedjquery.com
  */
 
 const canvas  = document.getElementById('canvas');
